@@ -4,7 +4,7 @@
 
 Descrição:
 
-<br> A tela de cadastro de uma escola oferece uma interface intuitiva e amigável para inserir informações essenciais sobre alunos, professores e disciplinas. Com um design limpo e organizado, a tela apresenta os seguintes campos para preenchimento:
+<p> A tela de cadastro de uma escola oferece uma interface intuitiva e amigável para inserir informações essenciais sobre alunos, professores e disciplinas. Com um design limpo e organizado, a tela apresenta os seguintes campos para preenchimento:
 
 1. Aluno:
    - Nome: campo de texto para inserir o nome completo do aluno.
@@ -29,4 +29,4 @@ Descrição:
 
 Além dos campos mencionados, a tela de cadastro pode incluir botões para enviar os dados do formulário, limpar os campos preenchidos e, possivelmente, um botão para adicionar mais disciplinas ou professores, se necessário.
 
-Essa tela de cadastro visa facilitar o registro de informações cruciais relacionadas a alunos, professores e disciplinas, auxiliando na organização e administração das atividades educacionais dentro da escola.<br>
+Essa tela de cadastro visa facilitar o registro de informações cruciais relacionadas a alunos, professores e disciplinas, auxiliando na organização e administração das atividades educacionais dentro da escola.<p>
