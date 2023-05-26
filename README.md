@@ -1,2 +1,2 @@
-# Tela_de_Cadastro
- Tela de cadastro para uma escola
+#  <h1>Tela_de_Cadastro<h1>
+ Tela de cadastro para uma escola.
