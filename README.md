@@ -1,6 +1,6 @@
 #Tela_de_Cadastro
  
- Título: Tela de Cadastro de Escola
+Título: Tela de Cadastro de Escola
 
 Descrição:
 
@@ -29,4 +29,4 @@ Descrição:
 
 Além dos campos mencionados, a tela de cadastro pode incluir botões para enviar os dados do formulário, limpar os campos preenchidos e, possivelmente, um botão para adicionar mais disciplinas ou professores, se necessário.
 
-Essa tela de cadastro visa facilitar o registro de informações cruciais relacionadas a alunos, professores e disciplinas, auxiliando na organização e administração das atividades educacionais dentro da escola.<p>
+Essa tela de cadastro visa facilitar o registro de informações cruciais relacionadas a alunos, professores e disciplinas, auxiliando na organização e administração das atividades educacionais dentro da escola.<
