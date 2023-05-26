@@ -4,15 +4,15 @@
 
 Descrição:
 
-<p> A tela de cadastro de uma escola oferece uma interface intuitiva e amigável para inserir informações essenciais sobre alunos, professores e disciplinas. Com um design limpo e organizado, a tela apresenta os seguintes campos para preenchimento:
+<p> A tela de cadastro de uma escola oferece uma interface intuitiva e amigável para inserir informações essenciais sobre alunos, professores e disciplinas. Com um design limpo e organizado, a tela apresenta os seguintes campos para preenchimento:<p>
 
-1. Aluno:
+<p>1. Aluno:
    - Nome: campo de texto para inserir o nome completo do aluno.
    - Data de Nascimento: campo de seleção ou inserção manual para especificar a data de nascimento do aluno.
    - Série: lista suspensa ou campo de seleção para escolher a série ou ano em que o aluno está matriculado.
    - Endereço: campo de texto para adicionar o endereço residencial do aluno.
    - E-mail: campo de texto para inserir o endereço de e-mail do aluno.
-   - Telefone: campo de texto para digitar o número de telefone do aluno.
+   - Telefone: campo de texto para digitar o número de telefone do aluno.<p>
 
 2. Professor:
    - Nome: campo de texto para inserir o nome completo do professor.
