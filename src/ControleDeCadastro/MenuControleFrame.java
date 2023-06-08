@@ -1,7 +1,6 @@
 package ControleDeCadastro;
 
 import application.JFrameTelaMenu;
-import visao.Frame;
 
 public class MenuControleFrame {
 
