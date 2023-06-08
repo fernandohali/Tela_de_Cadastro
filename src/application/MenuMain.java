@@ -6,6 +6,9 @@ public class MenuMain {
 
     public static void main(String[] args) {
 
-        MenuControleFrame.getIntance().funcInt();
+        MenuControleFrame menuControleFrame = MenuControleFrame.getIntance();
+        menuControleFrame.funcInt();
+        menuControleFrame.telaDoMenu();
+
     }
 }

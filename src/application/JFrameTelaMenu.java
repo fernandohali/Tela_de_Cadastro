@@ -6,9 +6,14 @@ public class JFrameTelaMenu extends JFrame {
 
     public JFrameTelaMenu() {
 
-        super("Tela de Cadastros da escola");
-        this.setVisible(true);
-        this.setSize(800, 600);
+        setTitle("Tela de cadastro");
+
+        setSize(1000, 700);
+
+        setLocationRelativeTo(null);
+
+        setVisible(false);
 
     }
+
 }
