@@ -1,12 +1,13 @@
 package application;
 
 import java.awt.Font;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-
+import ControleDeCadastro.MenuControleFrame;
 
 public class TelaMenu extends JPanel {
 
@@ -21,16 +22,19 @@ public class TelaMenu extends JPanel {
         super();
         this.setLayout(null);
         construcaoDoTitulo();
+        construcaoDoTextoInformativo();
+
         buttonAluno();
         buttonProfessor();
         buttonDisciplina();
+
         buttonSair();
-        contrucaoDoTextoInformativo();
+
     }
 
     public void construcaoDoTitulo() {
         tituloInicial = new JLabel("Seja-Bem(a) a tela de cadastro");
-        tituloInicial.setBounds(30, 33, 351, 30);
+        tituloInicial.setBounds(30, 33, 380, 30);
 
         // Definindo a fonte do texto
         Font fonte = new Font("makinglovem", Font.BOLD, 26);
@@ -38,16 +42,19 @@ public class TelaMenu extends JPanel {
 
         add(tituloInicial);
     }
-    
-    public void contrucaoDoTextoInformativo() {
+
+    public void construcaoDoTextoInformativo() {
         textoInicial = new JTextArea();
         textoInicial.setBounds(30, 74, 603, 245);
         textoInicial.setText("Título: Tela de Cadastro de Escola\n\n" +
                 "Descrição:\n\n" +
-                "A tela de cadastro de uma escola oferece uma interface intuitiva e amigável para inserir informações essenciais sobre alunos, professores e disciplinas.\n" +
-                "A tela apresenta campos para preenchimento de dados dos alunos, professores e disciplinas, facilitando o registro e a organização das informações na escola.\n" +
-                "Além disso, a tela pode incluir botões para enviar os dados do formulário e limpar os campos preenchidos.\n" +
-                "Essa tela de cadastro visa auxiliar na administração das atividades educacionais dentro da escola.");
+                "   A tela de cadastro de uma escola oferece uma interface intuitiva e amigável para inserir informações essenciais sobre alunos, professores e disciplinas.\n"
+                +
+                "   A tela apresenta campos para preenchimento de dados dos alunos, professores e disciplinas, facilitando o registro e a organização das informações na escola.\n"
+                +
+                "   Além disso, a tela pode incluir botões para enviar os dados do formulário e limpar os campos preenchidos.\n"
+                +
+                "   Essa tela de cadastro visa auxiliar na administração das atividades educacionais dentro da escola.");
         textoInicial.setEditable(false);
         textoInicial.setLineWrap(true);
         textoInicial.setWrapStyleWord(true);
@@ -56,35 +63,41 @@ public class TelaMenu extends JPanel {
         add(textoInicial);
     }
 
-
     public void buttonAluno() {
-
         JButton alunoButton = new JButton("Cadastrar Aluno");
         alunoButton.setBounds(30, 335, 165, 30);
         add(alunoButton);
+
+        // Adicionar ouvinte de ação ao botão
+        alunoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Chame a função irParaTelaAluno() da classe OutraClasse
+                MenuControleFrame.irParaTelaAluno();
+            }
+        });
     }
-    
-    
+
     public void buttonProfessor() {
-    	
-    	JButton professorButton = new JButton("Cadastrar Professor");
-    	professorButton.setBounds(30, 376, 165, 30);
+
+        JButton professorButton = new JButton("Cadastrar Professor");
+        professorButton.setBounds(30, 376, 165, 30);
         add(professorButton);
     }
-    
+
     public void buttonDisciplina() {
-    	
-    	JButton disciplinaButton = new JButton("Cadastrar Disciplina");
-    	disciplinaButton.setBounds(30, 417, 165, 30);
+
+        JButton disciplinaButton = new JButton("Cadastrar Disciplina");
+        disciplinaButton.setBounds(30, 417, 165, 30);
         add(disciplinaButton);
-        
+
     }
-    
+
     public void buttonSair() {
-    	
-    	JButton sairButton = new JButton("Sair da tela de cadastro");
-    	sairButton.setBounds(588, 513, 217, 30);
+
+        JButton sairButton = new JButton("Sair da tela de cadastro");
+        sairButton.setBounds(588, 513, 217, 30);
         add(sairButton);
-       
+
     }
 }
