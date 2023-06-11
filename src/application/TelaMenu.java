@@ -1,12 +1,16 @@
 package application;
 
 import java.awt.Font;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
+
 import ControleDeCadastro.MenuControleFrame;
 
 public class TelaMenu extends JPanel {
@@ -32,6 +36,7 @@ public class TelaMenu extends JPanel {
 
     }
 
+    // Cria o título da tela
     public void construcaoDoTitulo() {
         tituloInicial = new JLabel("Seja-Bem(a) a tela de cadastro");
         tituloInicial.setBounds(30, 33, 380, 30);
@@ -43,6 +48,7 @@ public class TelaMenu extends JPanel {
         add(tituloInicial);
     }
 
+    // Cria o texto informativo
     public void construcaoDoTextoInformativo() {
         textoInicial = new JTextArea();
         textoInicial.setBounds(30, 74, 603, 245);
@@ -63,41 +69,74 @@ public class TelaMenu extends JPanel {
         add(textoInicial);
     }
 
+    // Cria o botão de cadastro de aluno
     public void buttonAluno() {
-        JButton alunoButton = new JButton("Cadastrar Aluno");
+        alunoButton = new JButton("Cadastrar Aluno");
         alunoButton.setBounds(30, 335, 165, 30);
-        add(alunoButton);
 
         // Adicionar ouvinte de ação ao botão
         alunoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Chame a função irParaTelaAluno() da classe OutraClasse
+                // Chame a função irParaTelaAluno() da classe MenuControleFrame
                 MenuControleFrame.irParaTelaAluno();
+            }
+        });
+        add(alunoButton);
+    }
+
+    // Cria o botão de cadastro de professor
+    public void buttonProfessor() {
+        professorButton = new JButton("Cadastrar Professor");
+        professorButton.setBounds(30, 376, 165, 30);
+
+        professorButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuControleFrame.irParaTelaProfessor();
+            }
+        });
+        add(professorButton);
+    }
+
+    // Cria o botão de cadastro de disciplina
+    public void buttonDisciplina() {
+        disciplinaButton = new JButton("Cadastrar Disciplina");
+        disciplinaButton.setBounds(30, 417, 165, 30);
+        disciplinaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuControleFrame.irParaTelaDisciplina();
+            }
+        });
+        add(disciplinaButton);
+    }
+
+    // Cria o botão de sair
+    public void buttonSair() {
+        sairButton = new JButton("Sair da tela de cadastro");
+        sairButton.setBounds(588, 513, 217, 30);
+        add(sairButton);
+
+        // Adicionar ActionListener ao botão de sair
+        sairButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Chamar o método para sair do programa
+                sairDoPrograma();
             }
         });
     }
 
-    public void buttonProfessor() {
-
-        JButton professorButton = new JButton("Cadastrar Professor");
-        professorButton.setBounds(30, 376, 165, 30);
-        add(professorButton);
+    // Método para sair do programa
+    public void sairDoPrograma() {
+        // Fechar o JFrame (ou outra janela principal do programa) para encerrar o
+        // programa
+        Window window = SwingUtilities.getWindowAncestor(this); // Obtém a janela atual a partir do JPanel
+        if (window instanceof JFrame) {
+            JFrame frame = (JFrame) window;
+            frame.dispose(); // Fecha o JFrame
+        }
     }
 
-    public void buttonDisciplina() {
-
-        JButton disciplinaButton = new JButton("Cadastrar Disciplina");
-        disciplinaButton.setBounds(30, 417, 165, 30);
-        add(disciplinaButton);
-
-    }
-
-    public void buttonSair() {
-
-        JButton sairButton = new JButton("Sair da tela de cadastro");
-        sairButton.setBounds(588, 513, 217, 30);
-        add(sairButton);
-
-    }
 }

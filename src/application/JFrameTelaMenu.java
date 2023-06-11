@@ -8,14 +8,12 @@ public class JFrameTelaMenu extends JFrame {
 
     public JFrameTelaMenu() {
 
-        setTitle("Tela de cadastro");
+        setTitle("Tela de cadastro da escola");
 
-        setSize(1000, 700);
+        setExtendedState(JFrame.MAXIMIZED_BOTH); // Define a janela para maximizada
 
-        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        setVisible(false);
-
+        setVisible(true);
     }
-
 }

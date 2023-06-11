@@ -5,6 +5,8 @@ import javax.swing.SwingUtilities;
 
 import application.JFrameTelaMenu;
 import application.TelaDoAluno;
+import application.TelaDoDisciplina;
+import application.TelaDoProfessor;
 import application.TelaMenu;
 
 import java.awt.Color;
@@ -18,8 +20,9 @@ public class MenuControleFrame {
 
     public static TelaMenu tMenu;
     public static JFrameTelaMenu jfMenu;
-
     public static TelaDoAluno tAluno;
+    public static TelaDoProfessor tProfessor;
+    public static TelaDoDisciplina tDisciplina;
 
     public MenuControleFrame() {
 
@@ -44,6 +47,10 @@ public class MenuControleFrame {
 
         // Cria a instância da TelaDoAluno
         tAluno = new TelaDoAluno();
+
+        // Cria a instância da TelaDoDisciplina
+        tDisciplina = new TelaDoDisciplina();
+
     }
 
     public void telaDoMenu() {
@@ -65,6 +72,8 @@ public class MenuControleFrame {
                 }
             };
 
+            // Limpa o conteúdo anterior do jfMenu
+            jfMenu.getContentPane().removeAll();
             // Adiciona a instância de TelaMenu como conteúdo do JFrameTelaMenu
             jfMenu.getContentPane().add(tMenu);
 
@@ -99,6 +108,10 @@ public class MenuControleFrame {
                 }
             };
 
+            // Limpa o conteúdo anterior do jfMenu
+            jfMenu.getContentPane().removeAll();
+
+            // Adiciona o tDisciplina ao jfMenu
             jfMenu.getContentPane().add(tAluno);
             jfMenu.setTitle("Cadastrar Aluno(a)");
 
@@ -111,4 +124,69 @@ public class MenuControleFrame {
         });
     }
 
+    public static void irParaTelaProfessor() {
+
+        SwingUtilities.invokeLater(() -> {
+            // Cria a instância do TelaMenu com a sobreescrita do paintComponent para
+            // desenhar o degradê
+            tProfessor = new TelaDoProfessor() {
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    Graphics2D g2d = (Graphics2D) g;
+                    int altura = getHeight();
+                    GradientPaint gradient = new GradientPaint(0, 0, Color.decode("#02AABD"), 0, altura,
+                            Color.decode("#00CDAC"));
+                    g2d.setPaint(gradient);
+                    g2d.fillRect(0, 0, getWidth(), getHeight());
+                }
+            };
+
+            // Limpa o conteúdo anterior do jfMenu
+            jfMenu.getContentPane().removeAll();
+
+            // Adiciona o tProfessor ao jfMenu
+            jfMenu.getContentPane().add(tProfessor);
+            jfMenu.setTitle("Cadastrar Professor(a)");
+
+            // Configura o fechamento da janela quando o botão de fechar é clicado
+            jfMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+            // Torna a janela visível
+            jfMenu.setVisible(true);
+        });
+
+    }
+
+    public static void irParaTelaDisciplina() {
+
+        SwingUtilities.invokeLater(() -> {
+            // Cria a instância do TelaMenu com a sobreescrita do paintComponent para
+            // desenhar o degradê
+            tDisciplina = new TelaDoDisciplina() {
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    Graphics2D g2d = (Graphics2D) g;
+                    int altura = getHeight();
+                    GradientPaint gradient = new GradientPaint(0, 0, Color.decode("#02AABD"), 0, altura,
+                            Color.decode("#00CDAC"));
+                    g2d.setPaint(gradient);
+                    g2d.fillRect(0, 0, getWidth(), getHeight());
+                }
+            };
+
+            // Limpa o conteúdo anterior do jfMenu
+            jfMenu.getContentPane().removeAll();
+
+            // Adiciona o tDisciplina ao jfMenu
+            jfMenu.getContentPane().add(tDisciplina);
+            jfMenu.setTitle("Cadastrar Disciplina(a)");
+
+            // Configura o fechamento da janela quando o botão de fechar é clicado
+            jfMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+            // Torna a janela visível
+            jfMenu.setVisible(true);
+        });
+
+    }
 }
