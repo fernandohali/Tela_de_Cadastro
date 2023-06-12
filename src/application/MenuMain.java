@@ -8,7 +8,7 @@ public class MenuMain {
 
         MenuControleFrame menuControleFrame = MenuControleFrame.getIntance();
         menuControleFrame.funcInt();
-        menuControleFrame.telaDoMenu();
+        MenuControleFrame.telaDoMenu();
 
     }
 

@@ -1,30 +1,52 @@
 package application;
 
 import java.awt.Font;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+
+import ControleDeCadastro.MenuControleFrame;
 
 public class TelaDoProfessor extends JPanel {
 
 	private JLabel tituloProfessor;
-	private JButton sairButton;
+	private JButton voltarMenu;
+
+	private JTextField nomeDoProfessor;
+	private JSpinner idadeDoProfessor;
+	private JComboBox<String> sexo;
+	private JTextField telefoneDoProfessor;
+	private JTextField disciplinaDoProfessor;
 
 	public TelaDoProfessor() {
 		super();
 		this.setLayout(null);
+
+		this.add(getTextFildNomeDoProfessor());
+		this.add(getTextFieldIdadeDoProfessor())
+		;
+		this.add(getTextFildDisciplinaDoProfessor());
+
+		this.add(getTextFieldIdadeDoProfessor());
+
 		tituloDoProfessor();
-		buttonSair();
+		buttonVoltarMenu();
+		titulosDosCampos();
+
 	}
 
 	public void tituloDoProfessor() {
-		JLabel tituloProfessor = new JLabel("Cadastro do Professor");
+		tituloProfessor = new JLabel("Cadastro do Professor(a)");
 		tituloProfessor.setBounds(23, 21, 304, 27);
 		Font fonte = new Font("makinglovem", Font.BOLD, 26);
 		tituloProfessor.setFont(fonte);
@@ -32,30 +54,135 @@ public class TelaDoProfessor extends JPanel {
 
 	}
 
-	// Cria o botão de sair
-	public void buttonSair() {
-		sairButton = new JButton("Sair da tela de cadastro");
-		sairButton.setBounds(588, 513, 217, 30);
-		add(sairButton);
+	public void titulosDosCampos() {
 
-		// Adicionar ActionListener ao botão de sair
-		sairButton.addActionListener(new ActionListener() {
+		JLabel TituloNomeDoAluno = new JLabel("Nome do Professor(a)");
+		TituloNomeDoAluno.setBounds(10, 74, 120, 14);
+		add(TituloNomeDoAluno);
+
+		JLabel TituloIdadeDoAluno = new JLabel("Idade do Professor(a)");
+		TituloIdadeDoAluno.setBounds(10, 140, 98, 31);
+		add(TituloIdadeDoAluno);
+
+		JLabel TituloSexoDoAluno = new JLabel("Sexo do Professor(a)");
+		TituloSexoDoAluno.setBounds(10, 212, 98, 31);
+		add(TituloSexoDoAluno);
+
+		JLabel TituloDiscipla = new JLabel("Discipla do Professor(a)");
+		TituloDiscipla.setBounds(10, 283, 136, 31);
+		add(TituloDiscipla);
+
+		JLabel TituloTelefone = new JLabel("Telefone do Professor(a)");
+		TituloTelefone.setBounds(10, 425, 120, 31);
+		add(TituloTelefone);
+
+	}
+
+	public JTextField getTextFildNomeDoProfessor() {
+		// Verifica se o objeto JTextField já foi criado
+		if (nomeDoProfessor == null) {
+			// Cria um novo objeto JTextField
+			nomeDoProfessor = new JTextField();
+
+			// Configura o alinhamento do texto para a esquerda
+			nomeDoProfessor.setHorizontalAlignment(SwingConstants.LEFT);
+
+			// Define a posição e o tamanho do JTextField
+			nomeDoProfessor.setBounds(10, 99, 276, 30);
+		}
+
+		// Retorna o objeto JTextField
+		return nomeDoProfessor;
+	}
+
+	public JTextField getTextFildDisciplinaDoProfessor() {
+		// Verifica se o objeto JTextField já foi criado
+		if (disciplinaDoProfessor == null) {
+			// Cria um novo objeto JTextField
+			disciplinaDoProfessor = new JTextField();
+
+			// Configura o alinhamento do texto para a esquerda
+			disciplinaDoProfessor.setHorizontalAlignment(SwingConstants.LEFT);
+
+			// Define a posição e o tamanho do JTextField
+			disciplinaDoProfessor.setBounds(10, 314, 136, 30);
+		}
+
+		// Retorna o objeto JTextField
+		return disciplinaDoProfessor;
+	}
+
+	public JSpinner getTextFieldIdadeDoProfessor() {
+		// Verifica se o objeto JSpinner já foi criado
+		if (idadeDoProfessor == null) {
+			// Cria um novo objeto SpinnerNumberModel para aceitar apenas números inteiros
+			SpinnerNumberModel spinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+
+			// Cria um novo objeto JSpinner com o SpinnerNumberModel
+			idadeDoProfessor = new JSpinner(spinnerModel);
+
+			// Obtém o componente de editor do JSpinner para personalizar seu estilo
+			JComponent editor = idadeDoProfessor.getEditor();
+			JFormattedTextField textField = ((JSpinner.DefaultEditor) editor).getTextField();
+
+			// Configura o alinhamento do texto para a esquerda
+			textField.setHorizontalAlignment(SwingConstants.LEFT);
+
+			// Define a posição e o tamanho do JSpinner
+			idadeDoProfessor.setBounds(10, 171, 109, 30);
+		}
+
+		// Retorna o objeto JSpinner
+		return idadeDoProfessor;
+	}
+
+	public JComboBox<String> getComboBoxSexo() {
+		// Verifica se o objeto JComboBox já foi criado
+		if (sexo == null) {
+			// Cria um novo objeto JComboBox com as opções de sexo
+			String[] opcoesSexo = { "Masculino", "Feminino" };
+			sexo = new JComboBox<>(opcoesSexo);
+
+			// Define a posição e o tamanho do JComboBox
+			sexo.setBounds(10, 242, 109, 30);
+		}
+
+		// Retorna o objeto JComboBox
+		return sexo;
+	}
+
+	public JTextField getTextFildTelefoneDoProfessor() {
+
+		if (telefoneDoProfessor == null) {
+
+			// Cria um novo objeto JTextField
+			telefoneDoProfessor = new JTextField();
+
+			// Configura o alinhamento do texto para a esquerda
+			telefoneDoProfessor.setHorizontalAlignment(SwingConstants.LEFT);
+
+			// Define a posição e o tamanho do JTextField
+			telefoneDoProfessor.setBounds(10, 453, 109, 30);
+		}
+
+		// Retorna o objeto JTextField
+		return telefoneDoProfessor;
+	}
+
+	public void buttonVoltarMenu() {
+
+		voltarMenu = new JButton("Voltar para MENU");
+		voltarMenu.setBounds(26, 513, 217, 30);
+		add(voltarMenu);
+
+		voltarMenu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Chamar o método para sair do programa
-				sairDoPrograma();
+				MenuControleFrame.telaDoMenu();
 			}
 		});
+
+		add(voltarMenu);
 	}
 
-	// Método para sair do programa
-	public void sairDoPrograma() {
-		// Fechar o JFrame (ou outra janela principal do programa) para encerrar o
-		// programa
-		Window window = SwingUtilities.getWindowAncestor(this); // Obtém a janela atual a partir do JPanel
-		if (window instanceof JFrame) {
-			JFrame frame = (JFrame) window;
-			frame.dispose(); // Fecha o JFrame
-		}
-	}
 }

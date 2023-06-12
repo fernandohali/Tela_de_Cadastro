@@ -1,30 +1,32 @@
 package application;
 
 import java.awt.Font;
-import java.awt.Window;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
+
+import ControleDeCadastro.MenuControleFrame;
 
 public class TelaDoDisciplina extends JPanel {
 
 	private JLabel tituloDisciplina;
-	private JButton sairButton;
+	private JButton voltarMenu;
 
 	public TelaDoDisciplina() {
 		super();
 		this.setLayout(null);
 		tituloDoDisciplina();
-		buttonSair();
+		buttonVoltarMenu();
+
 	}
 
 	public void tituloDoDisciplina() {
-		JLabel tituloDisciplina = new JLabel("Cadastro Do Disciplina");
+		tituloDisciplina = new JLabel("Cadastro Do Disciplina");
 		tituloDisciplina.setBounds(23, 21, 304, 27);
 		Font fonte = new Font("makinglovem", Font.BOLD, 26);
 		tituloDisciplina.setFont(fonte);
@@ -32,30 +34,20 @@ public class TelaDoDisciplina extends JPanel {
 
 	}
 
-	// Cria o botão de sair
-	public void buttonSair() {
-		sairButton = new JButton("Sair da tela de cadastro");
-		sairButton.setBounds(588, 513, 217, 30);
-		add(sairButton);
+	public void buttonVoltarMenu() {
 
-		// Adicionar ActionListener ao botão de sair
-		sairButton.addActionListener(new ActionListener() {
+		voltarMenu = new JButton("Voltar para MENU");
+		voltarMenu.setBounds(26, 513, 217, 30);
+		add(voltarMenu);
+
+		voltarMenu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Chamar o método para sair do programa
-				sairDoPrograma();
+				MenuControleFrame.telaDoMenu();
 			}
 		});
+
+		add(voltarMenu);
 	}
 
-	// Método para sair do programa
-	public void sairDoPrograma() {
-		// Fechar o JFrame (ou outra janela principal do programa) para encerrar o
-		// programa
-		Window window = SwingUtilities.getWindowAncestor(this); // Obtém a janela atual a partir do JPanel
-		if (window instanceof JFrame) {
-			JFrame frame = (JFrame) window;
-			frame.dispose(); // Fecha o JFrame
-		}
-	}
 }

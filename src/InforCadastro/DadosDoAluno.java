@@ -3,28 +3,20 @@ package InforCadastro;
 public class DadosDoAluno {
 
     private String nomeDoAluno;
-    private int idAluno;
-    private int idadeDoAluno;
-    private String cpfDoAluno;
-    private String sexo;
-    private String turma;
-    private String nomeDoPai;
-    private String nomeDaMae;
-    private int telefoneDoPai;
-    private int telefoneDaMae;
+    private Integer idadeDoAluno;
+    private String cpf;
+    private String MatriculoDoAluno;
+    private String sexoAluno;
+    private String telefoneDoAluno;
 
-    public DadosDoAluno(String nomeDoAluno, int idAluno, int idadeDoAluno, String cpfDoAluno, String sexo, String turma,
-            String nomeDoPai, String nomeDaMae, int telefoneDoPai, int telefoneDaMae) {
+    public DadosDoAluno(String nomeDoAluno, Integer idadeDoAluno, String cpf, String matriculoDoAluno, String sexoAluno,
+            String telefoneDoAluno) {
         this.nomeDoAluno = nomeDoAluno;
-        this.idAluno = idAluno;
         this.idadeDoAluno = idadeDoAluno;
-        this.cpfDoAluno = cpfDoAluno;
-        this.sexo = sexo;
-        this.turma = turma;
-        this.nomeDoPai = nomeDoPai;
-        this.nomeDaMae = nomeDaMae;
-        this.telefoneDoPai = telefoneDoPai;
-        this.telefoneDaMae = telefoneDaMae;
+        this.cpf = cpf;
+        MatriculoDoAluno = matriculoDoAluno;
+        this.sexoAluno = sexoAluno;
+        this.telefoneDoAluno = telefoneDoAluno;
     }
 
     public String getNomeDoAluno() {
@@ -35,76 +27,44 @@ public class DadosDoAluno {
         this.nomeDoAluno = nomeDoAluno;
     }
 
-    public int getIdAluno() {
-        return idAluno;
-    }
-
-    public void setIdAluno(int idAluno) {
-        this.idAluno = idAluno;
-    }
-
-    public int getIdadeDoAluno() {
+    public Integer getIdadeDoAluno() {
         return idadeDoAluno;
     }
 
-    public void setIdadeDoAluno(int idadeDoAluno) {
+    public void setIdadeDoAluno(Integer idadeDoAluno) {
         this.idadeDoAluno = idadeDoAluno;
     }
 
-    public String getCpfDoAluno() {
-        return cpfDoAluno;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCpfDoAluno(String cpfDoAluno) {
-        this.cpfDoAluno = cpfDoAluno;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getMatriculoDoAluno() {
+        return MatriculoDoAluno;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setMatriculoDoAluno(String matriculoDoAluno) {
+        MatriculoDoAluno = matriculoDoAluno;
     }
 
-    public String getTurma() {
-        return turma;
+    public String getSexoAluno() {
+        return sexoAluno;
     }
 
-    public void setTurma(String turma) {
-        this.turma = turma;
+    public void setSexoAluno(String sexoAluno) {
+        this.sexoAluno = sexoAluno;
     }
 
-    public String getNomeDoPai() {
-        return nomeDoPai;
+    public String getTelefoneDoAluno() {
+        return telefoneDoAluno;
     }
 
-    public void setNomeDoPai(String nomeDoPai) {
-        this.nomeDoPai = nomeDoPai;
-    }
-
-    public String getNomeDaMae() {
-        return nomeDaMae;
-    }
-
-    public void setNomeDaMae(String nomeDaMae) {
-        this.nomeDaMae = nomeDaMae;
-    }
-
-    public int getTelefoneDoPai() {
-        return telefoneDoPai;
-    }
-
-    public void setTelefoneDoPai(int telefoneDoPai) {
-        this.telefoneDoPai = telefoneDoPai;
-    }
-
-    public int getTelefoneDaMae() {
-        return telefoneDaMae;
-    }
-
-    public void setTelefoneDaMae(int telefoneDaMae) {
-        this.telefoneDaMae = telefoneDaMae;
+    public void setTelefoneDoAluno(String telefoneDoAluno) {
+        this.telefoneDoAluno = telefoneDoAluno;
     }
 
 }

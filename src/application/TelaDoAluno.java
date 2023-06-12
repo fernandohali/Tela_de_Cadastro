@@ -1,62 +1,250 @@
 package application;
 
 import java.awt.Font;
-import java.awt.Window;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
+
+import ControleDeCadastro.MenuControleFrame;
+import javax.swing.SwingConstants;
 
 public class TelaDoAluno extends JPanel {
 
 	private JLabel tituloAluno;
-	private JButton sairButton;
+	private JButton voltarMenu;
+	private JButton cadastrarAluno;
+
+	private JTextField nomeDoAluno;
+	private JSpinner idadeDoAluno;
+	private JComboBox<String> sexo;
+	private JTextField MatriculaDoAluno;
+	private JTextField cpfDoAluno;
+	private JTextField telefoneDoAluno;
 
 	public TelaDoAluno() {
 		super();
 		this.setLayout(null);
 		tituloDoAluno();
 
-		buttonSair();
+		buttonVoltarMenu();
+
+		buttonCadastrar();
+		titulosDosCampos();
+
+		// Campos do texto para o cadastro do Aluno.
+		this.add(getTextFildNomeDoAluno());
+		this.add(getTextFieldIdadeDoAluno());
+		this.add(getComboBoxSexo());
+		this.add(getTextFieldMatriculaDoAluno());
+		this.add(getTextFildCpfDoAluno());
+		this.add(getTextFildTelefoneDoAluno());
+
 	}
 
 	public void tituloDoAluno() {
-		JLabel tituloAluno = new JLabel("Cadastro Do Aluno");
-		tituloAluno.setBounds(23, 21, 304, 27);
+		tituloAluno = new JLabel("Cadastro do aluno(a)");
+		tituloAluno.setBounds(23, 21, 354, 30);
 		Font fonte = new Font("makinglovem", Font.BOLD, 26);
 		tituloAluno.setFont(fonte);
 		add(tituloAluno);
 
 	}
 
-	// Cria o botão de sair
-	public void buttonSair() {
-		sairButton = new JButton("Sair da tela de cadastro");
-		sairButton.setBounds(588, 513, 217, 30);
-		add(sairButton);
+	public void titulosDosCampos() {
 
-		// Adicionar ActionListener ao botão de sair
-		sairButton.addActionListener(new ActionListener() {
+		JLabel TituloNomeDoAluno = new JLabel("Nome do aluno(a)");
+		TituloNomeDoAluno.setBounds(10, 74, 120, 14);
+		add(TituloNomeDoAluno);
+
+		JLabel TituloIdadeDoAluno = new JLabel("Idade do aluno(a)");
+		TituloIdadeDoAluno.setBounds(10, 140, 98, 31);
+		add(TituloIdadeDoAluno);
+
+		JLabel TituloSexoDoAluno = new JLabel("Sexo do aluno(a)");
+		TituloSexoDoAluno.setBounds(10, 212, 98, 31);
+		add(TituloSexoDoAluno);
+
+		JLabel TituloMatricula = new JLabel("Matricula do aluno(a)");
+		TituloMatricula.setBounds(10, 283, 136, 31);
+		add(TituloMatricula);
+
+		JLabel TituloCPF = new JLabel("CPF do aluno(a)");
+		TituloCPF.setBounds(10, 355, 98, 31);
+		add(TituloCPF);
+
+		JLabel TituloTelefone = new JLabel("Telefone do aluno(a)");
+		TituloTelefone.setBounds(10, 425, 120, 31);
+		add(TituloTelefone);
+
+	}
+
+	public JTextField getTextFildNomeDoAluno() {
+		// Verifica se o objeto JTextField já foi criado
+		if (nomeDoAluno == null) {
+			// Cria um novo objeto JTextField
+			nomeDoAluno = new JTextField();
+
+			// Configura o alinhamento do texto para a esquerda
+			nomeDoAluno.setHorizontalAlignment(SwingConstants.LEFT);
+
+			// Define a posição e o tamanho do JTextField
+			nomeDoAluno.setBounds(10, 99, 276, 30);
+		}
+
+		// Retorna o objeto JTextField
+		return nomeDoAluno;
+	}
+
+	public JSpinner getTextFieldIdadeDoAluno() {
+		// Verifica se o objeto JSpinner já foi criado
+		if (idadeDoAluno == null) {
+			// Cria um novo objeto SpinnerNumberModel para aceitar apenas números inteiros
+			SpinnerNumberModel spinnerModel = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
+
+			// Cria um novo objeto JSpinner com o SpinnerNumberModel
+			idadeDoAluno = new JSpinner(spinnerModel);
+
+			// Obtém o componente de editor do JSpinner para personalizar seu estilo
+			JComponent editor = idadeDoAluno.getEditor();
+			JFormattedTextField textField = ((JSpinner.DefaultEditor) editor).getTextField();
+
+			// Configura o alinhamento do texto para a esquerda
+			textField.setHorizontalAlignment(SwingConstants.LEFT);
+
+			// Define a posição e o tamanho do JSpinner
+			idadeDoAluno.setBounds(10, 171, 109, 30);
+		}
+
+		// Retorna o objeto JSpinner
+		return idadeDoAluno;
+	}
+
+	public JComboBox<String> getComboBoxSexo() {
+		// Verifica se o objeto JComboBox já foi criado
+		if (sexo == null) {
+			// Cria um novo objeto JComboBox com as opções de sexo
+			String[] opcoesSexo = { "Masculino", "Feminino" };
+			sexo = new JComboBox<>(opcoesSexo);
+
+			// Define a posição e o tamanho do JComboBox
+			sexo.setBounds(10, 242, 109, 30);
+		}
+
+		// Retorna o objeto JComboBox
+		return sexo;
+	}
+
+	public JTextField getTextFieldMatriculaDoAluno() {
+
+		// Verifica se o objeto JTextField já foi criado
+		if (MatriculaDoAluno == null) {
+			// Cria um novo objeto JTextField
+			MatriculaDoAluno = new JTextField();
+
+			// Configura o alinhamento do texto para a esquerda
+			MatriculaDoAluno.setHorizontalAlignment(SwingConstants.LEFT);
+
+			// Define a posição e o tamanho do JTextField
+			MatriculaDoAluno.setBounds(10, 314, 109, 30);
+		}
+
+		// Retorna o objeto JTextField
+		return MatriculaDoAluno;
+
+	}
+
+	public JTextField getTextFildCpfDoAluno() {
+
+		if (cpfDoAluno == null) {
+
+			// Cria um novo objeto JTextField
+			cpfDoAluno = new JTextField();
+
+			// Configura o alinhamento do texto para a esquerda
+			cpfDoAluno.setHorizontalAlignment(SwingConstants.LEFT);
+
+			// Define a posição e o tamanho do JTextField
+			cpfDoAluno.setBounds(10, 384, 109, 30);
+		}
+
+		// Retorna o objeto JTextField
+		return cpfDoAluno;
+	}
+
+	public JTextField getTextFildTelefoneDoAluno() {
+
+		if (telefoneDoAluno == null) {
+
+			// Cria um novo objeto JTextField
+			telefoneDoAluno = new JTextField();
+
+			// Configura o alinhamento do texto para a esquerda
+			telefoneDoAluno.setHorizontalAlignment(SwingConstants.LEFT);
+
+			// Define a posição e o tamanho do JTextField
+			telefoneDoAluno.setBounds(10, 453, 109, 30);
+		}
+
+		// Retorna o objeto JTextField
+		return telefoneDoAluno;
+	}
+
+	public void buttonCadastrar() {
+		// Criação do botão "Cadastrar aluno"
+		cadastrarAluno = new JButton("Cadastrar aluno(a)");
+
+		// Define a posição e o tamanho do botão
+		cadastrarAluno.setBounds(10, 555, 166, 30);
+
+		// Adiciona o botão ao componente atual
+		add(cadastrarAluno);
+
+		// Adiciona um ActionListener ao botão
+		cadastrarAluno.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Chamar o método para sair do programa
-				sairDoPrograma();
+				// Exibe um diálogo de confirmação
+				int resposta = JOptionPane.showConfirmDialog(null, "Deseja confirmar o cadastro do aluno(a)?",
+						"Confirmação", JOptionPane.YES_NO_OPTION);
+
+				// Verifica se o usuário confirmou o cadastro
+				if (resposta == JOptionPane.YES_OPTION) {
+					// Lógica para cadastrar o aluno
+					// ...
+
+					// Exibe uma mensagem de sucesso
+					JOptionPane.showMessageDialog(null, "Aluno(a) cadastrado com sucesso!");
+				}
 			}
 		});
 	}
 
-	// Método para sair do programa
-	public void sairDoPrograma() {
-		// Fechar o JFrame (ou outra janela principal do programa) para encerrar o
-		// programa
-		Window window = SwingUtilities.getWindowAncestor(this); // Obtém a janela atual a partir do JPanel
-		if (window instanceof JFrame) {
-			JFrame frame = (JFrame) window;
-			frame.dispose(); // Fecha o JFrame
-		}
+	public void buttonVoltarMenu() {
+
+		voltarMenu = new JButton("Voltar para MENU");
+		voltarMenu.setBounds(10, 623, 217, 30);
+		add(voltarMenu);
+
+		voltarMenu.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MenuControleFrame.telaDoMenu();
+			}
+		});
+
+		add(voltarMenu);
 	}
+
 }

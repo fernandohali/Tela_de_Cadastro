@@ -53,7 +53,7 @@ public class MenuControleFrame {
 
     }
 
-    public void telaDoMenu() {
+    public static void telaDoMenu() {
         // Executa a criação e exibição da janela do menu na thread de despacho de
         // eventos do Swing
         SwingUtilities.invokeLater(() -> {

@@ -2,29 +2,19 @@ package InforCadastro;
 
 public class DadosDoProfessor {
 
-    private int idProfessor;
     private String nomeDoProfessor;
     private int idadeDoProfessor;
     private String sexoDoProfessor;
-    private String turmaDoprofessor;
-    private int telefoneDoprofessor;
+    private String DisciplinaDoprofessor;
+    private String telefoneDoProfessor;
 
-    public DadosDoProfessor(int idProfessor, String nomeDoProfessor, int idadeDoProfessor, String sexoDoProfessor,
-            String turmaDoprofessor, int telefoneDoprofessor) {
-        this.idProfessor = idProfessor;
+    public DadosDoProfessor(String nomeDoProfessor, int idadeDoProfessor, String sexoDoProfessor,
+            String disciplinaDoprofessor, String telefoneDoProfessor) {
         this.nomeDoProfessor = nomeDoProfessor;
         this.idadeDoProfessor = idadeDoProfessor;
         this.sexoDoProfessor = sexoDoProfessor;
-        this.turmaDoprofessor = turmaDoprofessor;
-        this.telefoneDoprofessor = telefoneDoprofessor;
-    }
-
-    public int getIdProfessor() {
-        return idProfessor;
-    }
-
-    public void setIdProfessor(int idProfessor) {
-        this.idProfessor = idProfessor;
+        DisciplinaDoprofessor = disciplinaDoprofessor;
+        this.telefoneDoProfessor = telefoneDoProfessor;
     }
 
     public String getNomeDoProfessor() {
@@ -51,20 +41,20 @@ public class DadosDoProfessor {
         this.sexoDoProfessor = sexoDoProfessor;
     }
 
-    public String getTurmaDoprofessor() {
-        return turmaDoprofessor;
+    public String getDisciplinaDoprofessor() {
+        return DisciplinaDoprofessor;
     }
 
-    public void setTurmaDoprofessor(String turmaDoprofessor) {
-        this.turmaDoprofessor = turmaDoprofessor;
+    public void setDisciplinaDoprofessor(String disciplinaDoprofessor) {
+        DisciplinaDoprofessor = disciplinaDoprofessor;
     }
 
-    public int getTelefoneDoprofessor() {
-        return telefoneDoprofessor;
+    public String getTelefoneDoProfessor() {
+        return telefoneDoProfessor;
     }
 
-    public void setTelefoneDoprofessor(int telefoneDoprofessor) {
-        this.telefoneDoprofessor = telefoneDoprofessor;
+    public void setTelefoneDoProfessor(String telefoneDoProfessor) {
+        this.telefoneDoProfessor = telefoneDoProfessor;
     }
 
 }
