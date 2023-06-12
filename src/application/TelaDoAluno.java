@@ -1,7 +1,6 @@
 package application;
 
 import java.awt.Font;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import ControleDeCadastro.MenuControleFrame;
+import ControleDeCadastro.PanelCadastroDoAluno;
+
 import javax.swing.SwingConstants;
 
 public class TelaDoAluno extends JPanel {
@@ -29,7 +30,7 @@ public class TelaDoAluno extends JPanel {
 	private JTextField nomeDoAluno;
 	private JSpinner idadeDoAluno;
 	private JComboBox<String> sexo;
-	private JTextField MatriculaDoAluno;
+	private JTextField matriculaDoAluno;
 	private JTextField cpfDoAluno;
 	private JTextField telefoneDoAluno;
 
@@ -38,19 +39,17 @@ public class TelaDoAluno extends JPanel {
 		this.setLayout(null);
 		tituloDoAluno();
 
-		buttonVoltarMenu();
-
-		buttonCadastrar();
 		titulosDosCampos();
 
 		// Campos do texto para o cadastro do Aluno.
-		this.add(getTextFildNomeDoAluno());
+		getTextFildNomeDoAluno();
 		this.add(getTextFieldIdadeDoAluno());
 		this.add(getComboBoxSexo());
 		this.add(getTextFieldMatriculaDoAluno());
 		this.add(getTextFildCpfDoAluno());
 		this.add(getTextFildTelefoneDoAluno());
-
+		buttonVoltarMenu();
+		buttonCadastrar();
 	}
 
 	public void tituloDoAluno() {
@@ -103,6 +102,7 @@ public class TelaDoAluno extends JPanel {
 			nomeDoAluno.setBounds(10, 99, 276, 30);
 		}
 
+		add(nomeDoAluno);
 		// Retorna o objeto JTextField
 		return nomeDoAluno;
 	}
@@ -149,19 +149,19 @@ public class TelaDoAluno extends JPanel {
 	public JTextField getTextFieldMatriculaDoAluno() {
 
 		// Verifica se o objeto JTextField já foi criado
-		if (MatriculaDoAluno == null) {
+		if (matriculaDoAluno == null) {
 			// Cria um novo objeto JTextField
-			MatriculaDoAluno = new JTextField();
+			matriculaDoAluno = new JTextField();
 
 			// Configura o alinhamento do texto para a esquerda
-			MatriculaDoAluno.setHorizontalAlignment(SwingConstants.LEFT);
+			matriculaDoAluno.setHorizontalAlignment(SwingConstants.LEFT);
 
 			// Define a posição e o tamanho do JTextField
-			MatriculaDoAluno.setBounds(10, 314, 109, 30);
+			matriculaDoAluno.setBounds(10, 314, 109, 30);
 		}
 
 		// Retorna o objeto JTextField
-		return MatriculaDoAluno;
+		return matriculaDoAluno;
 
 	}
 
@@ -208,27 +208,50 @@ public class TelaDoAluno extends JPanel {
 		// Define a posição e o tamanho do botão
 		cadastrarAluno.setBounds(10, 555, 166, 30);
 
-		// Adiciona o botão ao componente atual
-		add(cadastrarAluno);
-
 		// Adiciona um ActionListener ao botão
 		cadastrarAluno.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Exibe um diálogo de confirmação
-				int resposta = JOptionPane.showConfirmDialog(null, "Deseja confirmar o cadastro do aluno(a)?",
-						"Confirmação", JOptionPane.YES_NO_OPTION);
 
-				// Verifica se o usuário confirmou o cadastro
-				if (resposta == JOptionPane.YES_OPTION) {
+				PanelCadastroDoAluno ControleDeCadastro = new PanelCadastroDoAluno();
+
+				// Lógica para cadastrar o aluno
+				String nomeA = nomeDoAluno.getText();
+				String idadeA = (String) idadeDoAluno.getValue();
+				String sexoA = (String) sexo.getSelectedItem();
+				String matriculaDoAlunoA = matriculaDoAluno.getText();
+				String cpfA = cpfDoAluno.getText();
+				String telefoneA = telefoneDoAluno.getText();
+
+				if (nomeA.isEmpty() || idadeA.isEmpty() || sexoA.isEmpty() || matriculaDoAlunoA.isEmpty()
+						|| cpfA.isEmpty() || telefoneA.isEmpty()) {
+
+					JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos.");
+
+				} else {
 					// Lógica para cadastrar o aluno
 					// ...
 
-					// Exibe uma mensagem de sucesso
-					JOptionPane.showMessageDialog(null, "Aluno(a) cadastrado com sucesso!");
+					ControleDeCadastro.cadastrarAlunoText(nomeA, idadeA, sexoA, matriculaDoAlunoA, cpfA,
+							telefoneA);
+
+					// Limpa os campos de entrada de dados
+					nomeDoAluno.setText("");
+					idadeDoAluno.setValue(0);
+					sexo.setSelectedIndex(0);
+					matriculaDoAluno.setText("");
+					cpfDoAluno.setText("");
+					telefoneDoAluno.setText("");
+
+					MenuControleFrame.telaDoMenu();
 				}
+
 			}
+
 		});
+
+		// Adiciona o botão ao componente atual
+		add(cadastrarAluno);
 	}
 
 	public void buttonVoltarMenu() {

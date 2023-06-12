@@ -1,15 +1,19 @@
 package InforCadastro;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class DadosDoAluno {
 
     private String nomeDoAluno;
-    private Integer idadeDoAluno;
+    private String idadeDoAluno;
     private String cpf;
     private String MatriculoDoAluno;
     private String sexoAluno;
     private String telefoneDoAluno;
 
-    public DadosDoAluno(String nomeDoAluno, Integer idadeDoAluno, String cpf, String matriculoDoAluno, String sexoAluno,
+    public DadosDoAluno(String nomeDoAluno, String idadeDoAluno, String cpf, String matriculoDoAluno, String sexoAluno,
             String telefoneDoAluno) {
         this.nomeDoAluno = nomeDoAluno;
         this.idadeDoAluno = idadeDoAluno;
@@ -17,6 +21,9 @@ public class DadosDoAluno {
         MatriculoDoAluno = matriculoDoAluno;
         this.sexoAluno = sexoAluno;
         this.telefoneDoAluno = telefoneDoAluno;
+    }
+
+    public DadosDoAluno() {
     }
 
     public String getNomeDoAluno() {
@@ -27,11 +34,11 @@ public class DadosDoAluno {
         this.nomeDoAluno = nomeDoAluno;
     }
 
-    public Integer getIdadeDoAluno() {
+    public String getIdadeDoAluno() {
         return idadeDoAluno;
     }
 
-    public void setIdadeDoAluno(Integer idadeDoAluno) {
+    public void setIdadeDoAluno(String idadeDoAluno) {
         this.idadeDoAluno = idadeDoAluno;
     }
 
@@ -65,6 +72,29 @@ public class DadosDoAluno {
 
     public void setTelefoneDoAluno(String telefoneDoAluno) {
         this.telefoneDoAluno = telefoneDoAluno;
+    }
+
+    public String salvarTxt() {
+
+        try {
+            FileWriter fw = new FileWriter("Aluno.txt");
+            PrintWriter pw = new PrintWriter(fw);
+
+            pw.println("\nInformações do cadastro aluno");
+            pw.println("Nome: " + this.nomeDoAluno);
+            pw.println("Idade: " + this.idadeDoAluno);
+            pw.println("CPF: " + this.cpf);
+            pw.println("Matrícula: " + this.MatriculoDoAluno);
+            pw.println("Sexo: " + this.sexoAluno);
+            pw.println("Telefone: " + this.telefoneDoAluno);
+
+            pw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "Cadastro confirmado";
     }
 
 }

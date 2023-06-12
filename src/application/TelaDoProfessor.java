@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -16,11 +17,13 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
 import ControleDeCadastro.MenuControleFrame;
+import ControleDeCadastro.PanelCadastroDoProfessor;
 
 public class TelaDoProfessor extends JPanel {
 
 	private JLabel tituloProfessor;
 	private JButton voltarMenu;
+	private JButton cadastrarProfessor;
 
 	private JTextField nomeDoProfessor;
 	private JSpinner idadeDoProfessor;
@@ -33,15 +36,15 @@ public class TelaDoProfessor extends JPanel {
 		this.setLayout(null);
 
 		this.add(getTextFildNomeDoProfessor());
-		this.add(getTextFieldIdadeDoProfessor())
-		;
-		this.add(getTextFildDisciplinaDoProfessor());
-
 		this.add(getTextFieldIdadeDoProfessor());
+		this.add(getComboBoxSexo());
+		this.add(getTextFildDisciplinaDoProfessor());
+		this.add(getTextFildTelefoneDoProfessor());
 
 		tituloDoProfessor();
 		buttonVoltarMenu();
 		titulosDosCampos();
+		buttonCadastrar();
 
 	}
 
@@ -73,7 +76,7 @@ public class TelaDoProfessor extends JPanel {
 		add(TituloDiscipla);
 
 		JLabel TituloTelefone = new JLabel("Telefone do Professor(a)");
-		TituloTelefone.setBounds(10, 425, 120, 31);
+		TituloTelefone.setBounds(10, 355, 136, 31);
 		add(TituloTelefone);
 
 	}
@@ -162,17 +165,68 @@ public class TelaDoProfessor extends JPanel {
 			telefoneDoProfessor.setHorizontalAlignment(SwingConstants.LEFT);
 
 			// Define a posição e o tamanho do JTextField
-			telefoneDoProfessor.setBounds(10, 453, 109, 30);
+			telefoneDoProfessor.setBounds(10, 385, 109, 30);
 		}
 
 		// Retorna o objeto JTextField
 		return telefoneDoProfessor;
 	}
 
+	public void buttonCadastrar() {
+		// Criação do botão "Cadastrar aluno"
+		cadastrarProfessor = new JButton("Cadastrar aluno(a)");
+
+		// Define a posição e o tamanho do botão
+		cadastrarProfessor.setBounds(10, 555, 166, 30);
+
+		// Adiciona um ActionListener ao botão
+		cadastrarProfessor.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				PanelCadastroDoProfessor ControleDeCadastro = new PanelCadastroDoProfessor();
+
+				// Lógica para cadastrar o aluno
+				String nomeP = nomeDoProfessor.getText();
+				String idadeP = (String) idadeDoProfessor.getValue();
+				String sexoP = (String) sexo.getSelectedItem();
+				String telefoneDoP = telefoneDoProfessor.getText();
+				String disciplinaP = disciplinaDoProfessor.getText();
+
+				if (nomeP.isEmpty() || idadeP.isEmpty() || sexoP.isEmpty() || telefoneDoP.isEmpty()
+						|| disciplinaP.isEmpty()) {
+
+					JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos.");
+
+				} else {
+					// Lógica para cadastrar o aluno
+					// ...
+
+					ControleDeCadastro.cadastrarProfessorText(nomeP, idadeP, sexoP, disciplinaP, telefoneDoP);
+
+					// Limpa os campos de entrada de dados
+					nomeDoProfessor.setText("");
+					idadeDoProfessor.setValue(0);
+					sexo.setSelectedIndex(0);
+					telefoneDoProfessor.setText("");
+					disciplinaDoProfessor.setText("");
+
+					MenuControleFrame.telaDoMenu();
+				}
+
+			}
+
+		});
+
+		// Adiciona o botão ao componente atual
+		add(cadastrarProfessor);
+	}
+
 	public void buttonVoltarMenu() {
 
 		voltarMenu = new JButton("Voltar para MENU");
-		voltarMenu.setBounds(26, 513, 217, 30);
+		voltarMenu.setBounds(10, 623, 217, 30);
 		add(voltarMenu);
 
 		voltarMenu.addActionListener(new ActionListener() {
