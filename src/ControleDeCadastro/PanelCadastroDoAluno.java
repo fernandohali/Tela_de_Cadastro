@@ -1,5 +1,7 @@
 package ControleDeCadastro;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 import InforCadastro.DadosDoAluno;
@@ -12,7 +14,7 @@ public class PanelCadastroDoAluno {
     }
 
     public void cadastrarAlunoText(String nomeDoAluno, String idadeDoAluno, String cpf, String MatriculoDoAluno,
-            String sexoAluno, String telefoneDoAluno) {
+            String sexoAluno, String telefoneDoAluno) throws IOException {
 
         dadosaluno.setNomeDoAluno(nomeDoAluno);
         dadosaluno.setIdadeDoAluno(idadeDoAluno);

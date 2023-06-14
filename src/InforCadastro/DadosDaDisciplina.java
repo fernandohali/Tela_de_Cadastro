@@ -9,18 +9,7 @@ public class DadosDaDisciplina {
     private String disciplina;
     private String professorDaDisciplina;
     private String matriculaDisiciplina;
-    private double horasDaDisciplina;
-
-    public DadosDaDisciplina(String disciplina, String professorDaDisciplina, String matriculaDisiciplina,
-            double horasDaDisciplina) {
-        this.disciplina = disciplina;
-        this.professorDaDisciplina = professorDaDisciplina;
-        this.matriculaDisiciplina = matriculaDisiciplina;
-        this.horasDaDisciplina = horasDaDisciplina;
-    }
-
-    public DadosDaDisciplina() {
-    }
+    private String horasDaDisciplina;
 
     public String getDisciplina() {
         return disciplina;
@@ -46,12 +35,12 @@ public class DadosDaDisciplina {
         this.matriculaDisiciplina = matriculaDisiciplina;
     }
 
-    public double getHorasDaDisciplina() {
+    public String getHorasDaDisciplina() {
         return horasDaDisciplina;
     }
 
-    public void setHorasDaDisciplina(double horasDaDisciplina) {
-        this.horasDaDisciplina = horasDaDisciplina;
+    public void setHorasDaDisciplina(String martricula) {
+        this.horasDaDisciplina = martricula;
     }
 
     public String salvarTxt() {

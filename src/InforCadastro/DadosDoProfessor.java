@@ -12,18 +12,6 @@ public class DadosDoProfessor {
     private String DisciplinaDoprofessor;
     private String telefoneDoProfessor;
 
-    public DadosDoProfessor(String nomeDoProfessor, String idadeDoProfessor, String sexoDoProfessor,
-            String disciplinaDoprofessor, String telefoneDoProfessor) {
-        this.nomeDoProfessor = nomeDoProfessor;
-        this.idadeDoProfessor = idadeDoProfessor;
-        this.sexoDoProfessor = sexoDoProfessor;
-        DisciplinaDoprofessor = disciplinaDoprofessor;
-        this.telefoneDoProfessor = telefoneDoProfessor;
-    }
-
-    public DadosDoProfessor() {
-    }
-
     public String getNomeDoProfessor() {
         return nomeDoProfessor;
     }
@@ -67,7 +55,7 @@ public class DadosDoProfessor {
     public String salvarTxt() {
 
         try {
-            FileWriter fw = new FileWriter("professor(aw).txt", true);
+            FileWriter fw = new FileWriter("professor(a).txt", true);
             PrintWriter pw = new PrintWriter(fw);
 
             pw.println("\nInformações do cadastro Professor(a)");
@@ -77,9 +65,8 @@ public class DadosDoProfessor {
             pw.println("Matrícula: " + this.DisciplinaDoprofessor);
             pw.println("Telefone: " + this.telefoneDoProfessor);
 
-            pw.flush();
             pw.close();
-            fw.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

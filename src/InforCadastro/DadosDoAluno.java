@@ -13,14 +13,7 @@ public class DadosDoAluno {
     private String sexoAluno;
     private String telefoneDoAluno;
 
-    public DadosDoAluno(String nomeDoAluno, String idadeDoAluno, String cpf, String matriculoDoAluno, String sexoAluno,
-            String telefoneDoAluno) {
-        this.nomeDoAluno = nomeDoAluno;
-        this.idadeDoAluno = idadeDoAluno;
-        this.cpf = cpf;
-        MatriculoDoAluno = matriculoDoAluno;
-        this.sexoAluno = sexoAluno;
-        this.telefoneDoAluno = telefoneDoAluno;
+    public DadosDoAluno(String nome, String idade, String sexoA, String matricula, String cpf2, String telefone) {
     }
 
     public DadosDoAluno() {
@@ -77,10 +70,10 @@ public class DadosDoAluno {
     public String salvarTxt() {
 
         try {
-            FileWriter fw = new FileWriter("Aluno.txt");
+            FileWriter fw = new FileWriter("Aluno(a).txt");
             PrintWriter pw = new PrintWriter(fw);
 
-            pw.println("\nInformações do cadastro aluno");
+            pw.println("\nInformações do cadastro aluno(a)");
             pw.println("Nome: " + this.nomeDoAluno);
             pw.println("Idade: " + this.idadeDoAluno);
             pw.println("CPF: " + this.cpf);

@@ -3,6 +3,7 @@ package application;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,7 +11,7 @@ import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -215,43 +216,30 @@ public class TelaDoAluno extends JPanel {
 
 				PanelCadastroDoAluno ControleDeCadastro = new PanelCadastroDoAluno();
 
-				// Lógica para cadastrar o aluno
-				String nomeA = nomeDoAluno.getText();
-				String idadeA = (String) idadeDoAluno.getValue();
+				String nome = nomeDoAluno.getText();
+				String idade = (String) idadeDoAluno.getToolTipText();
 				String sexoA = (String) sexo.getSelectedItem();
-				String matriculaDoAlunoA = matriculaDoAluno.getText();
-				String cpfA = cpfDoAluno.getText();
-				String telefoneA = telefoneDoAluno.getText();
+				String matricula = matriculaDoAluno.getText();
+				String cpf = cpfDoAluno.getText();
+				String telefone = telefoneDoAluno.getText();
 
-				if (nomeA.isEmpty() || idadeA.isEmpty() || sexoA.isEmpty() || matriculaDoAlunoA.isEmpty()
-						|| cpfA.isEmpty() || telefoneA.isEmpty()) {
+				try {
+					ControleDeCadastro.cadastrarAlunoText(nome, idade, cpf, matricula, sexoA, telefone);
+				} catch (IOException e1) {
 
-					JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos.");
-
-				} else {
-					// Lógica para cadastrar o aluno
-					// ...
-
-					ControleDeCadastro.cadastrarAlunoText(nomeA, idadeA, sexoA, matriculaDoAlunoA, cpfA,
-							telefoneA);
-
-					// Limpa os campos de entrada de dados
-					nomeDoAluno.setText("");
-					idadeDoAluno.setValue(0);
-					sexo.setSelectedIndex(0);
-					matriculaDoAluno.setText("");
-					cpfDoAluno.setText("");
-					telefoneDoAluno.setText("");
-
-					MenuControleFrame.telaDoMenu();
+					e1.printStackTrace();
 				}
 
+				MenuControleFrame.telaDoMenu();
 			}
 
 		});
 
 		// Adiciona o botão ao componente atual
 		add(cadastrarAluno);
+	}
+
+	protected void escreverDadosEmArquivo(PanelCadastroDoAluno controleDeCadastro) {
 	}
 
 	public void buttonVoltarMenu() {
@@ -269,5 +257,4 @@ public class TelaDoAluno extends JPanel {
 
 		add(voltarMenu);
 	}
-
 }

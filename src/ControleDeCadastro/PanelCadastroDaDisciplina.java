@@ -12,12 +12,12 @@ public class PanelCadastroDaDisciplina {
     }
 
     public void cadastrarDisciplinaText(String disciplina, String professorDaDisciplina, String matriculaDisiciplina,
-            double horasDaDisciplina) {
+            String martricula) {
 
         dadosDaDisciplina.setDisciplina(disciplina);
         dadosDaDisciplina.setProfessorDaDisciplina(professorDaDisciplina);
         dadosDaDisciplina.setMatriculaDisiciplina(matriculaDisiciplina);
-        dadosDaDisciplina.setHorasDaDisciplina(horasDaDisciplina);
+        dadosDaDisciplina.setHorasDaDisciplina(martricula);
 
         String mensagem = dadosDaDisciplina.salvarTxt();
 

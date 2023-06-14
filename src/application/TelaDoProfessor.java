@@ -9,7 +9,6 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -189,31 +188,17 @@ public class TelaDoProfessor extends JPanel {
 
 				// Lógica para cadastrar o aluno
 				String nomeP = nomeDoProfessor.getText();
-				String idadeP = (String) idadeDoProfessor.getValue();
+				String idadeP = (String) idadeDoProfessor.getToolTipText();
 				String sexoP = (String) sexo.getSelectedItem();
 				String telefoneDoP = telefoneDoProfessor.getText();
 				String disciplinaP = disciplinaDoProfessor.getText();
 
-				if (nomeP.isEmpty() || idadeP.isEmpty() || sexoP.isEmpty() || telefoneDoP.isEmpty()
-						|| disciplinaP.isEmpty()) {
+				// Lógica para cadastrar o aluno
+				// ...
 
-					JOptionPane.showMessageDialog(null, "Todos os campos devem estar preenchidos.");
+				ControleDeCadastro.cadastrarProfessorText(nomeP, idadeP, sexoP, disciplinaP, telefoneDoP);
 
-				} else {
-					// Lógica para cadastrar o aluno
-					// ...
-
-					ControleDeCadastro.cadastrarProfessorText(nomeP, idadeP, sexoP, disciplinaP, telefoneDoP);
-
-					// Limpa os campos de entrada de dados
-					nomeDoProfessor.setText("");
-					idadeDoProfessor.setValue(0);
-					sexo.setSelectedIndex(0);
-					telefoneDoProfessor.setText("");
-					disciplinaDoProfessor.setText("");
-
-					MenuControleFrame.telaDoMenu();
-				}
+				MenuControleFrame.telaDoMenu();
 
 			}
 

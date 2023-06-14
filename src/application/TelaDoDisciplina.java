@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -17,6 +17,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
 import ControleDeCadastro.MenuControleFrame;
+import ControleDeCadastro.PanelCadastroDaDisciplina;
 
 public class TelaDoDisciplina extends JPanel {
 
@@ -163,19 +164,15 @@ public class TelaDoDisciplina extends JPanel {
 		cadastrarDisciplina.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// Exibe um diálogo de confirmação
-				int resposta = JOptionPane.showConfirmDialog(null, "Deseja confirmar o cadastro do Disciplina(a)?",
-						"Confirmação", JOptionPane.YES_NO_OPTION);
+				PanelCadastroDaDisciplina ControleDeCadastro = new PanelCadastroDaDisciplina();
 
-				// Verifica se o usuário confirmou o cadastro
-				if (resposta == JOptionPane.YES_OPTION) {
-					// Lógica para cadastrar o aluno
-					// ...
+				String nome = nomeDaDisciplina.getText();
+				String nomeprofessor = nomeDoProfessorNaDisciplina.getText();
+				String cargahoraria = (String) cargaHoraria.getToolTipText();
+				String martricula = (String) matriculaDaDisciplina.getText();
 
-					// Exibe uma mensagem de sucesso
-					JOptionPane.showMessageDialog(null, "Disciplina(a) cadastrado com sucesso!");
+				ControleDeCadastro.cadastrarDisciplinaText(nome, nomeprofessor, cargahoraria, martricula);
 
-				}
 			}
 		});
 	}
